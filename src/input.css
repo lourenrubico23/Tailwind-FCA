@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container{
+    @apply max-w-[90rem] p-6 w-full mx-auto;
+}
+
+@layer components{
+
+    /* -----------------------------------------------HEADER----------------------------------------- */
+    .header__wrapper{
+        @apply border-b-[1px] border-black
+    }
+    .branding{
+        @apply hidden md:block 
+    }
+    .branding .header__navd{
+        @apply md:flex items-center 
+    }
+    .branding .header__navd li a{
+        @apply font-medium text-sm text-light md:text-[1rem] p-2 
+    }
+    .header__wrapper img{
+        @apply w-[15rem] 
+    }
+    .header__action{
+        @apply bg-light absolute top-[8rem] right-0 w-0 h-[90vh] px-0 pt-0 overflow-hidden transition-all shadow-md
+        md:static md:h-fit md:w-fit md:shadow-none md:hidden text-center 
+    }
+    .header__action .header__navBotm{
+        @apply gap-[.5rem] 
+    }
+    .header__navm{
+        @apply gap-[1rem]
+    }
+    
+    .header__action.open{
+        @apply w-[100%] px-10 pt-10 transition-all
+    }
+    .header__action .header__navBotm{
+        @apply flex flex-col justify-center 
+        md:hidden
+    }
+    .burger__menu{
+        @apply md:hidden
+    }
+    .burger__menu span{
+        @apply w-[2rem] h-[.2rem] bg-dark block rounded-full transition-all mb-[.2rem]
+    }
+    .header__wrapper{
+        @apply flex items-center justify-between w-full
+    }
+    .burger__menu.open span:first-child{
+        @apply w-[1.5rem] translate-x-[-.1rem] translate-y-[.1rem] rotate-[-38deg] transition-all
+    }
+    .burger__menu.open span:nth-child(2){
+        @apply w-[40px] translate-y-[.1rem] transition-all
+    }
+    .burger__menu.open span:last-child{
+        @apply w-[1.5rem] translate-x-[-.1rem] translate-y-[.1rem] rotate-[38deg] transition-all
+    }
+    
+   /* ------------------------Banner--------------------- */
+   .card.active{
+        @apply opacity-100 transition-all
+    }
+    .question__contents{
+        @apply bg-lightgray relative h-[500px] md:h-[290px]
+    }
+    .question1{
+        @apply absolute transition-all top-[30rem] w-fit h-fit
+        md:grid md:grid-cols-[_2fr,_2fr] md:items-center md:max-w-[50rem] md:left-[25%]
+    }
+    .question1.active{
+        @apply opacity-100 transition-all
+    }
+    .question h2{
+        @apply text-5xl font-thin text-center mb-[6rem]
+    }
+    .question__menu ul{
+        @apply text-center flex flex-col 
+    }
+    .question__menu ul li a{
+        @apply text-lg text-gray-600
+    }
+    .question__contents ul.open{
+        @apply max-h-[50rem] transition-all pt-6
+    }
+   
+
+    
+
+}
+
+@layer utilities{
+    .btn{
+        @apply inline-block py-[.5rem] px-[1rem] rounded-[1rem] border-transparent border-[1px] text-sm font-medium
+    }
+    .btn.bg--darkblue{
+        @apply bg-darkblue text-light  hover:bg-lightblue
+    }
+    .btn.bg--darkTransparent{
+        @apply  text-black border-[1px] border-black hover:bg-lightgreen hover:text-light
+    }
+    .btn.bg--greenTransparent{
+        @apply  text-black border-[1px] border-lightgreen hover:bg-darkyellow hover:text-light
+    }
+    .btn.bg--lightgreen{
+        @apply bg-lightgreen text-light  hover:bg-darkyellow
+    }
+    .btn.bg--darkyellow{
+        @apply bg-darkyellow text-light 
+    }
+    .btn.bg--transparent{
+        @apply text-dark rounded-none
+    }
+}
