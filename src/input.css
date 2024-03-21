@@ -25,7 +25,7 @@
         @apply w-[15rem] 
     }
     .header__action{
-        @apply bg-light absolute top-[8rem] right-0 w-0 h-[90vh] px-0 pt-0 overflow-hidden transition-all shadow-md
+        @apply bg-light z-50 absolute top-[8rem] right-0 w-0 h-[100vh] px-0 pt-0 overflow-hidden transition-all shadow-md
         md:static md:h-fit md:w-fit md:shadow-none md:hidden text-center 
     }
     .header__action .header__navBotm{
@@ -36,7 +36,7 @@
     }
     
     .header__action.open{
-        @apply w-[100%] px-10 pt-10 transition-all
+        @apply w-[100%] px-10 pt-10 transition-all 
     }
     .header__action .header__navBotm{
         @apply flex flex-col justify-center 
@@ -62,31 +62,49 @@
     }
     
    /* ------------------------Banner--------------------- */
-   .card.active{
-        @apply opacity-100 transition-all
+   .coffee__item{
+        @apply absolute opacity-0 transition-all top-8 
+         lg:items-center lg:max-w-[50rem] lg:left-[25%] 
     }
-    .question__contents{
-        @apply bg-lightgray relative h-[500px] md:h-[290px]
+    .coffee__item.active{
+        @apply opacity-100 transition-all z-50
     }
-    .question1{
-        @apply absolute transition-all top-[30rem] w-fit h-fit
-        md:grid md:grid-cols-[_2fr,_2fr] md:items-center md:max-w-[50rem] md:left-[25%]
+    .coffee__tab{
+        @apply top-[5rem] relative p-3
     }
-    .question1.active{
-        @apply opacity-100 transition-all
+    .menucoffee__nav h4{
+        @apply text-4xl font-thin text-center mx-auto p-[5rem]
     }
-    .question h2{
-        @apply text-5xl font-thin text-center mb-[6rem]
+    .menucoffee__nav ul li{
+        @apply text-xl font-thin text-gray-500 text-center p-2
     }
-    .question__menu ul{
-        @apply text-center flex flex-col 
+    .menucoffee__nav ul li.active{
+        @apply underline text-lightgreen font-normal
     }
-    .question__menu ul li a{
-        @apply text-lg text-gray-600
+    .coffee__item h2{
+        @apply text-2xl font-semibold pb-8
     }
-    .question__contents ul.open{
-        @apply max-h-[50rem] transition-all pt-6
+    .question h5{
+        @apply text-lg font-medium flex justify-between mx-auto
     }
+    .coffee__text p{
+        @apply text-gray-600
+    }
+    .coffee__text{
+        @apply bg-gray-100 mb-8 p-4
+    }
+
+    .coffee__text h5 i.open{
+        @apply  transform rotate-180 w-fit h-fit transition-all lg:transform lg:rotate-180 lg:w-fit lg:h-fit lg:transition-all
+    }
+    .coffee__item .coffee__text:not(:first-child) .contents.open{
+        @apply max-h-[50rem] transition-all pt-6 lg:max-h-[50rem] lg:transition-all lg:pt-6
+    }
+    .coffee__tab .coffee__text:not(:first-child) .contents{
+        @apply max-h-[0rem] overflow-hidden transition-all 
+        flex flex-col gap-6 md:max-h-[50rem] md:pt-6 
+    }
+    
    
 
     

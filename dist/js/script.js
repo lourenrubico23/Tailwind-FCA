@@ -8,7 +8,7 @@ burger.addEventListener("click", () =>{
 
 
 /* Links / Dropdown */
-const links = document.querySelectorAll(".card h3");
+const links = document.querySelectorAll(".coffee__text h5");
 links.forEach((link) => {
   link.addEventListener("click", () => {
     link.querySelector("i").classList.toggle("open");
@@ -17,25 +17,26 @@ links.forEach((link) => {
 });
 
 /* Partnering or Displaying its content */
-const questionNav = document.querySelectorAll(".menu-1");
-const questionContent = document.querySelectorAll(".card");
-questionNav.forEach((question) => {
-  question.addEventListener("click", () => {
+const starNav = document.querySelectorAll(".coffee__nav__link");
+const starContent = document.querySelectorAll(".coffee__item");
+starNav.forEach((star) => {
+  star.addEventListener("click", () => {
     removeActiveStar();
-    question.classList.add("active");
-    const activeContent = document.querySelector(`#${question.id}-content`);
+    star.classList.add("active");
+    const activeContent = document.querySelector(`#${star.id}-content`);
     removeActiveContent();
     activeContent.classList.add("active");
   });
 });
+
 function removeActiveStar() {
-    questionNav.forEach((question) => {
-      question.classList.remove("active");
+  starNav.forEach((star) => {
+    star.classList.remove("active");
+  });
+}
+function removeActiveContent() {
+    starContent.forEach((content) => {
+      content.classList.remove("active");
     });
   }
-  function removeActiveContent() {
-      questionContent.forEach((content) => {
-        content.classList.remove("active");
-      });
-    }
     
