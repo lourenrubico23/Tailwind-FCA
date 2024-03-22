@@ -1,9 +1,11 @@
 /* Burger Button */
 const burger = document.querySelector(".burger__menu");
 const headerA = document.querySelector(".header__action");
+const body = document.querySelector("body");
 burger.addEventListener("click", () =>{
     burger.classList.toggle("open");
     headerA.classList.toggle("open");
+    body.classList.toggle('open');
 })
 
 
@@ -16,7 +18,7 @@ links.forEach((link) => {
   });
 });
 
-/* Partnering or Displaying its content */
+/* Partnering or Displaying its content / Tabs*/
 const starNav = document.querySelectorAll(".coffee__nav__link");
 const starContent = document.querySelectorAll(".coffee__item");
 starNav.forEach((star) => {

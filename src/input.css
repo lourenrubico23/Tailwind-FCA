@@ -10,43 +10,74 @@
 
     /* -----------------------------------------------HEADER----------------------------------------- */
     .header__wrapper{
-        @apply border-b-[1px] border-black
+        @apply border-b-[1px] border-black md:border-hidden
     }
     .branding{
-        @apply hidden md:block 
+        @apply hidden md:flex md:flex-col
     }
-    .branding .header__navd{
-        @apply md:flex items-center 
+    .branding .navup .header__navd{
+        @apply md:flex items-center justify-end w-[90rem] gap-8
+    }
+    .branding .header__navBotd{
+        @apply md:flex  justify-end gap-9 md:text-xl mx-auto
+    }
+    .branding .header__navBotd li{
+        @apply md:border-r-2  my-3 w-[10rem] 
+    }
+    .branding .header__navBotd li:last-child{
+        @apply md:border-r-0
+    }
+    .branding .navbot{
+        @apply md:border-t-[1px] border-black
     }
     .branding .header__navd li a{
-        @apply font-medium text-sm text-light md:text-[1rem] p-2 
+        @apply font-medium text-sm md:text-[1rem] p-2 md:w-[7rem] text-center
     }
-    .header__wrapper img{
-        @apply w-[15rem] 
+    .navbot .header__navBotd li a{
+        @apply md:w-[6rem] text-center md:text-lg font-thin
+    }
+    .header__wrapper .logo{
+        @apply w-[15rem] md:hidden
+    }
+    .header__navd img{
+        @apply md:w-[12rem] mr-[27rem]
     }
     .header__action{
-        @apply bg-light z-50 absolute top-[8rem] right-0 w-0 h-[100vh] px-0 pt-0 overflow-hidden transition-all shadow-md
+        @apply bg-light z-50 absolute top-[8rem] right-0 w-0 h-[100vh] px-0 pt-0 overflow-hidden transition-all shadow-md duration-300
         md:static md:h-fit md:w-fit md:shadow-none md:hidden text-center 
     }
-    .header__action .header__navBotm{
-        @apply gap-[.5rem] 
+    .header__navBotm li a{
+        @apply text-lg font-thin
     }
     .header__navm{
         @apply gap-[1rem]
     }
     
     .header__action.open{
-        @apply w-[100%] px-10 pt-10 transition-all 
+        @apply w-[100%] px-10 pt-1 transition-all 
     }
     .header__action .header__navBotm{
-        @apply flex flex-col justify-center 
+        @apply flex flex-col justify-center mb-5
         md:hidden
+    }
+    .header__action .header__navm{
+        @apply flex flex-col justify-center mb-5
+    }
+    .header__action .header__navm li a{
+        @apply w-[8rem] p-3
+    }
+    .header__action .header__navBotm li a:last-child{
+        @apply w-[8rem] p-2
+    }
+    .burger__menu.open{
+        @apply md:hidden transition-all rotate-180
     }
     .burger__menu{
         @apply md:hidden
     }
+    
     .burger__menu span{
-        @apply w-[2rem] h-[.2rem] bg-dark block rounded-full transition-all mb-[.2rem]
+        @apply w-[2rem] h-[.2rem] bg-dark block rounded-full transition-all mb-[.2rem] 
     }
     .header__wrapper{
         @apply flex items-center justify-between w-full
@@ -55,7 +86,7 @@
         @apply w-[1.5rem] translate-x-[-.1rem] translate-y-[.1rem] rotate-[-38deg] transition-all
     }
     .burger__menu.open span:nth-child(2){
-        @apply w-[40px] translate-y-[.1rem] transition-all
+        @apply w-[35px] translate-y-[.1rem] transition-all
     }
     .burger__menu.open span:last-child{
         @apply w-[1.5rem] translate-x-[-.1rem] translate-y-[.1rem] rotate-[38deg] transition-all
@@ -63,30 +94,46 @@
     
    /* ------------------------Banner--------------------- */
    .coffee__item{
-        @apply absolute opacity-0 transition-all top-8 
-         lg:items-center lg:max-w-[50rem] lg:left-[25%] 
+        @apply hidden opacity-0 transition-all top-0
+         md:items-center md:w-[63rem] md:left-[25%] 
     }
     .coffee__item.active{
-        @apply opacity-100 transition-all z-50
+        @apply block opacity-100 transition-all z-50 
     }
     .coffee__tab{
-        @apply top-[5rem] relative p-3
+        @apply top-[5rem] p-3 w-fit h-full mt-[5rem] text-justify
     }
-    .menucoffee__nav h4{
-        @apply text-4xl font-thin text-center mx-auto p-[5rem]
+    .fca__question{
+        @apply md:grid grid-cols-[_1fr,_2fr] 
+    }
+    .menucoffee__wrapper h4{
+        @apply text-4xl font-thin text-center mx-auto m-9 p-[2rem] md:text-[5rem] text-gray-600
+    }
+    .menucoffee__nav{
+        @apply md:mt-[7rem] 
     }
     .menucoffee__nav ul li{
-        @apply text-xl font-thin text-gray-500 text-center p-2
+        @apply text-xl font-thin text-gray-500 text-center p-2 md:text-left
     }
     .menucoffee__nav ul li.active{
-        @apply underline text-lightgreen font-normal
+        @apply underline text-lightgreen 
     }
     .coffee__item h2{
         @apply text-2xl font-semibold pb-8
     }
-    .question h5{
-        @apply text-lg font-medium flex justify-between mx-auto
+    .question{
+        @apply relative
     }
+    .question h5{
+        @apply text-lg font-medium  pr-5 w-[90%]
+    }
+    .question h5 i{
+        @apply absolute md:mx-auto top-3 right-5
+    }
+    .question h5 span{
+        @apply mr-2
+    }
+    
     .coffee__text p{
         @apply text-gray-600
     }
@@ -95,15 +142,57 @@
     }
 
     .coffee__text h5 i.open{
-        @apply  transform rotate-180 w-fit h-fit transition-all lg:transform lg:rotate-180 lg:w-fit lg:h-fit lg:transition-all
+        @apply  transform rotate-180 w-fit h-fit transition-all 
+        lg:transform lg:rotate-180  lg:transition-all
     }
     .coffee__item .coffee__text:not(:first-child) .contents.open{
-        @apply max-h-[50rem] transition-all pt-6 lg:max-h-[50rem] lg:transition-all lg:pt-6
+        @apply max-h-[50rem] transition-all pt-6 
     }
     .coffee__tab .coffee__text:not(:first-child) .contents{
         @apply max-h-[0rem] overflow-hidden transition-all 
-        flex flex-col gap-6 md:max-h-[50rem] md:pt-6 
+        flex flex-col gap-6 
     }
+    .contents p{
+        @apply text-lg md:p-3 
+    }
+    
+    
+
+    /* -----------------------Footer------------------- */
+    .footer{
+        @apply bg-lightgray 
+    }
+    .footer__list{
+        @apply flex flex-col p-6 md:grid md:grid-cols-[.5fr,2fr,0.5fr] md:gap-[15rem]
+    }
+    .footer__list ul{
+        @apply hidden opacity-0 md:block md:opacity-100 
+    }
+    .footer__list .footer__btn{
+        @apply mx-auto w-[13rem] text-center text-[1.2rem] font-thin flex flex-col
+    }
+    .footer__btn a{
+        @apply mb-3
+    }
+    .footer__img{
+        @apply w-[200px] mx-auto items-start
+    }
+    .footer__bot{
+        @apply border-t-[2px] border-gray-500 flex flex-col text-center mt-5 md:flex md:flex-row md:justify-between md:mt-5
+    }
+    .footer__bot p{
+        @apply mt-5 
+    }
+    .footer__bot p i{ 
+        @apply text-[2rem] mx-auto text-gray-500 md:px-3
+    }
+    .list{
+        @apply grid grid-cols-3
+    }
+    .list ul li h3{
+        @apply  font-semibold
+    }
+   
     
    
 
@@ -113,16 +202,16 @@
 
 @layer utilities{
     .btn{
-        @apply inline-block py-[.5rem] px-[1rem] rounded-[1rem] border-transparent border-[1px] text-sm font-medium
+        @apply inline-block py-[.8rem] px-[1rem] rounded-[.5rem] border-transparent border-[1px] text-sm font-medium
     }
     .btn.bg--darkblue{
         @apply bg-darkblue text-light  hover:bg-lightblue
     }
     .btn.bg--darkTransparent{
-        @apply  text-black border-[1px] border-black hover:bg-lightgreen hover:text-light
+        @apply  text-gray-900 border-[1px] border-black hover:bg-lightgreen hover:text-light
     }
     .btn.bg--greenTransparent{
-        @apply  text-black border-[1px] border-lightgreen hover:bg-darkyellow hover:text-light
+        @apply  text-gray-900 border-[1px] border-lightgreen hover:bg-darkyellow hover:text-light
     }
     .btn.bg--lightgreen{
         @apply bg-lightgreen text-light  hover:bg-darkyellow
@@ -133,4 +222,5 @@
     .btn.bg--transparent{
         @apply text-dark rounded-none
     }
+    
 }
